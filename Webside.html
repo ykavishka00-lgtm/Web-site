@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pearl Holiday Tours | Premium Travel Experiences in Sri Lanka</title>
+    <meta name="description" content="Premium travel and tourism service in Sri Lanka. Private tours, airport pickups, luxury vehicles, and customized packages to Ella, Sigiriya, Galle and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5f4a;
+            --primary-light: #2d8a6e;
+            --accent: #d4a853;
+            --accent-light: #e8c878;
+            --dark: #1c1c1c;
+            --text: #333333;
+            --text-light: #666666;
+            --bg: #faf9f6;
+            --white: #ffffff;
+            --shadow: 0 10px 40px rgba(0,0,0,0.08);
+            --shadow-hover: 0 20px 60px rgba(0,0,0,0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #1a5f4a 0%, #0d3b2e 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1588258525935-3e3c3f6e7f4e?w=1920&q=80') center/cover;
+            opacity: 0.25;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            max-width: 900px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--accent-light);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            font-weight: 300;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--dark);
+            border-color: var(--accent);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            border-color: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212,168,83,0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+            border-color: white;
+            transform: translateY(-3px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            opacity: 0.7;
+            animation: bounce 2s infinite;
+            font-size: 1.5rem;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-15px); }
+            60% { transform: translateX(-50%) translateY(-8px); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .accent-line {
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--accent);
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(26,95,74,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Destinations Section */
+        .destinations {
+            background: var(--white);
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .destination-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 400px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            group: true;
+        }
+
+        .destination-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .destination-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .destination-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            transition: all 0.4s;
+        }
+
+        .destination-card:hover .destination-overlay {
+            padding-bottom: 2.5rem;
+        }
+
+        .destination-overlay h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .destination-overlay p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .destination-tag {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: var(--accent);
+            color: var(--dark);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Why Choose Us */
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .feature-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            opacity: 0.6;
+        }
+
+        .feature-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .feature-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(135deg, var(--primary) 0%, #0d3b2e 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials .section-header h2,
+        .testimonials .section-header p {
+            color: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        .stars {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            background: var(--white);
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--primary) 0%, #0d3b2e 100%);
+            padding: 4rem;
+            border-radius: 30px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+        }
+
+        .cta-box h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .cta-box p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(26,95,74,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item div h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--dark);
+        }
+
+        .contact-item div p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e8e8e8;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            background: var(--bg);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.7);
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .logo {
+            color: white;
+            margin-bottom: 1rem;
+            display: inline-flex;
+        }
+
+        .footer-brand p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer-links h4 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            section {
+                padding: 4rem 5%;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .cta-box {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo">
+            <div class="logo-icon">&#9733;</div>
+            Pearl Holiday Tours
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#why-us">Why Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn">&#9776;</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="hero-subtitle">Discover the Pearl of the Indian Ocean</p>
+            <h1>Unforgettable Journeys Across Sri Lanka</h1>
+            <p>Experience the true beauty of Sri Lanka with premium private tours, luxury transportation, and personalized travel packages crafted just for you.</p>
+            <div class="btn-group">
+                <a href="#contact" class="btn btn-primary">Plan Your Trip</a>
+                <a href="#destinations" class="btn btn-outline">Explore Destinations</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">&#8595;</div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-grid">
+            <div class="about-content fade-in">
+                <h2>Crafting Memorable Travel Experiences Since Day One</h2>
+                <p>At Pearl Holiday Tours, we believe that travel is not just about visiting new places — it's about creating lasting memories. Based in the heart of Sri Lanka, we specialize in curating premium travel experiences that showcase the very best of our island nation.</p>
+                <p>From the misty mountains of Ella to the ancient fortresses of Sigiriya and the sun-kissed beaches of Galle, we take you on a journey through Sri Lanka's most breathtaking landscapes with comfort, safety, and style.</p>
+                <p>Our mission is simple: to provide safe, comfortable, and memorable journeys with professional service and deeply personalized travel experiences. Whether you seek relaxation, adventure, culture, or wildlife, we are here to make your dream vacation a reality.</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>500+</h3>
+                        <p>Happy Travelers</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Unique Destinations</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Satisfaction Rate</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image fade-in">
+                <img src="https://images.unsplash.com/photo-1546707012-c46675f12716?w=800&q=80" alt="Beautiful Sri Lankan landscape with tea plantations">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="section-header fade-in">
+            <h2>Our Premium Services</h2>
+            <div class="accent-line"></div>
+            <p>Everything you need for a perfect Sri Lankan holiday, delivered with excellence and care.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">&#128663;</div>
+                <h3>Private Tours</h3>
+                <p>Exclusive guided tours tailored to your interests and pace. Explore Sri Lanka's hidden gems with your own personal guide and vehicle.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">&#9992;</div>
+                <h3>Airport Pickups</h3>
+                <p>Seamless airport transfers with professional chauffeurs. Start and end your journey in comfort with our reliable pickup and drop-off services.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">&#128142;</div>
+                <h3>Luxury Vehicles</h3>
+                <p>Travel in style with our fleet of premium, air-conditioned vehicles. From sedans to SUVs, we ensure your ride is as enjoyable as the destination.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">&#128197;</div>
+                <h3>Custom Packages</h3>
+                <p>Flexible itineraries designed around your schedule, budget, and travel style. Beach, culture, mountains, or wildlife — you choose, we deliver.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section class="destinations" id="destinations">
+        <div class="section-header fade-in">
+            <h2>Popular Destinations</h2>
+            <div class="accent-line"></div>
+            <p>From ancient ruins to pristine beaches, discover the diverse beauty of Sri Lanka.</p>
+        </div>
+        <div class="destinations-grid">
+            <div class="destination-card fade-in">
+                <img src="https://images.unsplash.com/photo-1589793907316-560ef97f25b4?w=600&q=80" alt="Ella - Nine Arch Bridge">
+                <div class="destination-overlay">
+                    <h3>Ella</h3>
+                    <p>Misty mountains, tea plantations, and the iconic Nine Arch Bridge await in this hill country paradise.</p>
+                    <span class="destination-tag">Mountain Escape</span>
+                </div>
+            </div>
+            <div class="destination-card fade-in">
+                <img src="https://images.unsplash.com/photo-1562696271-c9227b9db3c9?w=600&q=80" alt="Sigiriya Rock Fortress">
+                <div class="destination-overlay">
+                    <h3>Sigiriya</h3>
+                    <p>Climb the ancient Lion Rock fortress and explore UNESCO World Heritage ruins surrounded by lush gardens.</p>
+                    <span class="destination-tag">Cultural Adventure</span>
+                </div>
+            </div>
+            <div class="destination-card fade-in">
+                <img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=600&q=80" alt="Galle Fort and beaches">
+                <div class="destination-overlay">
+                    <h3>Galle</h3>
+                    <p>Colonial charm meets coastal beauty in this historic fort city with stunning sunsets and pristine beaches.</p>
+                    <span class="destination-tag">Beach Holiday</span>
+                </div>
+            </div>
+            <div class="destination-card fade-in">
+                <img src="https://images.unsplash.com/photo-1552423316-6820347a3f0b?w=600&q=80" alt="Yala National Park leopard safari">
+                <div class="destination-overlay">
+                    <h3>Yala National Park</h3>
+                    <p>Embark on thrilling safari adventures to spot leopards, elephants, and exotic birds in their natural habitat.</p>
+                    <span class="destination-tag">Wildlife Experience</span>
+                </div>
+            </div>
+            <div class="destination-card fade-in">
+                <img src="https://images.unsplash.com/photo-1546707012-5d06f8c97a5c?w=600&q=80" alt="Kandy Temple of the Tooth">
+                <div class="destination-overlay">
+                    <h3>Kandy</h3>
+                    <p>The cultural capital featuring the sacred Temple of the Tooth and serene botanical gardens.</p>
+                    <span class="destination-tag">Cultural Heritage</span>
+                </div>
+            </div>
+            <div class="destination-card fade-in">
+                <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=600&q=80" alt="Mirissa beach whale watching">
+                <div class="destination-overlay">
+                    <h3>Mirissa</h3>
+                    <p>Whale watching, golden sands, and turquoise waters make this the ultimate tropical beach getaway.</p>
+                    <span class="destination-tag">Beach & Ocean</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-us">
+        <div class="section-header fade-in">
+            <h2>Why Travel With Us?</h2>
+            <div class="accent-line"></div>
+            <p>We go the extra mile to ensure every journey is safe, comfortable, and truly unforgettable.</p>
+        </div>
+        <div class="features-list">
+            <div class="feature-item fade-in">
+                <div class="feature-number">01</div>
+                <div class="feature-content">
+                    <h3>Professional & Experienced Team</h3>
+                    <p>Our drivers and guides are licensed professionals with deep local knowledge and years of experience in Sri Lankan tourism.</p>
+                </div>
+            </div>
+            <div class="feature-item fade-in">
+                <div class="feature-number">02</div>
+                <div class="feature-content">
+                    <h3>Affordable Luxury</h3>
+                    <p>Premium experiences at competitive prices. We believe luxury travel should be accessible without compromising on quality.</p>
+                </div>
+            </div>
+            <div class="feature-item fade-in">
+                <div class="feature-number">03</div>
+                <div class="feature-content">
+                    <h3>Personalized Itineraries</h3>
+                    <p>No two travelers are the same. We craft custom packages that match your pace, interests, and travel dreams.</p>
+                </div>
+            </div>
+            <div class="feature-item fade-in">
+                <div class="feature-number">04</div>
+                <div class="feature-content">
+                    <h3>Reliable Transportation</h3>
+                    <p>Modern, air-conditioned, well-maintained vehicles with safety as our top priority for every journey.</p>
+                </div>
+            </div>
+            <div class="feature-item fade-in">
+                <div class="feature-number">05</div>
+                <div class="feature-content">
+                    <h3>24/7 Customer Support</h3>
+                    <p>We are with you every step of the way. Round-the-clock assistance ensures peace of mind throughout your trip.</p>
+                </div>
+            </div>
+            <div class="feature-item fade-in">
+                <div class="feature-number">06</div>
+                <div class="feature-content">
+                    <h3>Local Expertise</h3>
+                    <p>As a Sri Lankan company, we know the best routes, hidden spots, and authentic experiences that big agencies miss.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section-header fade-in">
+            <h2>What Our Guests Say</h2>
+            <div class="accent-line" style="background: var(--accent-light);"></div>
+            <p>Real stories from travelers who explored Sri Lanka with us.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-in">
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="testimonial-text">"Pearl Holiday Tours made our honeymoon absolutely magical. The private tour to Ella and the luxury vehicle made us feel like royalty. Highly recommend!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JM</div>
+                    <div class="author-info">
+                        <h4>James & Maria</h4>
+                        <p>United Kingdom</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="testimonial-text">"From airport pickup to our final drop-off, everything was seamless. Our guide knew all the best spots and hidden gems. Best travel experience in Sri Lanka!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SK</div>
+                    <div class="author-info">
+                        <h4>Sarah Kim</h4>
+                        <p>South Korea</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="testimonial-text">"We booked a customized family package covering Sigiriya, Kandy, and Galle. The kids loved it, and the service was impeccable. Will definitely return!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">RF</div>
+                    <div class="author-info">
+                        <h4>Rajesh Family</h4>
+                        <p>India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-box fade-in">
+            <h2>Ready for Your Sri Lankan Adventure?</h2>
+            <p>Let us craft your perfect itinerary. Whether it's a weekend getaway or a two-week exploration, your dream vacation starts here.</p>
+            <a href="#contact" class="btn btn-primary" style="font-size: 1.1rem; padding: 1.2rem 3rem;">Get Your Free Quote Today</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header fade-in">
+            <h2>Get In Touch</h2>
+            <div class="accent-line"></div>
+            <p>Have questions or ready to book? Reach out and we'll respond within 24 hours.</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info fade-in">
+                <h3>Contact Information</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">&#9742;</div>
+                    <div>
+                        <h4>Phone / WhatsApp</h4>
+                        <p>+94 77 123 4567<br>+94 11 234 5678</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">&#9993;</div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>info@pearlholidaytours.com<br>bookings@pearlholidaytours.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">&#127968;</div>
+                    <div>
+                        <h4>Office Address</h4>
+                        <p>123 Galle Road, Colombo 03,<br>Sri Lanka</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">&#128338;</div>
+                    <div>
+                        <h4>Working Hours</h4>
+                        <p>Monday - Sunday: 8:00 AM - 8:00 PM<br>(We operate 365 days a year)</p>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" title="Facebook">f</a>
+                    <a href="#" title="Instagram">&#9733;</a>
+                    <a href="#" title="WhatsApp">W</a>
+                    <a href="#" title="TripAdvisor">T</a>
+                </div>
+            </div>
+            
+            <div class="contact-form fade-in">
+                <form onsubmit="event.preventDefault(); alert('Thank you for your inquiry! We will contact you within 24 hours.');">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone / WhatsApp</label>
+                        <input type="tel" id="phone" placeholder="+94 77 123 4567">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Interested Service</label>
+                        <select id="service" required>
+                            <option value="">Select a service...</option>
+                            <option value="private-tour">Private Tour Package</option>
+                            <option value="airport">Airport Pickup / Drop-off</option>
+                            <option value="luxury-vehicle">Luxury Vehicle Hire</option>
+                            <option value="custom">Custom Itinerary</option>
+                            <option value="other">Other Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" placeholder="Tell us about your travel plans, preferred dates, number of travelers, and any special requests..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; border: none;">Send Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon">&#9733;</div>
+                    Pearl Holiday Tours
+                </a>
+                <p>Premium travel and tourism services in Sri Lanka. Creating unforgettable journeys with comfort, safety, and personalized care since our founding.</p>
+                <div class="social-links">
+                    <a href="#" title="Facebook">f</a>
+                    <a href="#" title="Instagram">&#9733;</a>
+                    <a href="#" title="WhatsApp">W</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Private Tours</a></li>
+                    <li><a href="#">Airport Transfers</a></li>
+                    <li><a href="#">Luxury Vehicles</a></li>
+                    <li><a href="#">Custom Packages</a></li>
+                    <li><a href="#">Group Bookings</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Destinations</h4>
+                <ul>
+                    <li><a href="#">Ella & Hill Country</a></li>
+                    <li><a href="#">Sigiriya & Cultural Triangle</a></li>
+                    <li><a href="#">Galle & South Coast</a></li>
+                    <li><a href="#">Yala & Wildlife</a></li>
+                    <li><a href="#">Kandy & Central Province</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p> Pearl Holiday Tours. All rights reserved. | Designed with love for Sri Lanka.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.1)';
+                navbar.style.padding = '0.8rem 5%';
+            } else {
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
+                navbar.style.padding = '1rem 5%';
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle (basic)
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            alert('Mobile menu - please add your mobile navigation menu here or integrate with your preferred CMS.');
+        });
+    </script>
+</body>
+</html>
